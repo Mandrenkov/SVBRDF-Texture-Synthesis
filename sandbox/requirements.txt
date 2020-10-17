@@ -1,0 +1,8 @@
+imageio==2.8.0
+llvmlite==0.32.1
+numba==0.49.1
+numpy==1.18.3
+Pillow==7.1.1
+pkg-resources==0.0.0
+scipy==1.4.1
+tqdm==4.45.0

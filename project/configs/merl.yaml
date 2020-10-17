@@ -1,0 +1,7 @@
+Flow:
+    Input Path: assets/merl_100.png
+    Output Path: results/merl.png
+    Optimizer: L-BFGS-B
+
+SVBRDF:
+    Type: Disney

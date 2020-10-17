@@ -1,0 +1,31 @@
+Flow:
+    Input Paths:
+        - data/Earth - Dry Mud/Sample 0.png
+        - data/Earth - Dry Mud/Sample 1.png
+    Output Path: results/blend.png
+    Alphas:
+        Local: 0.5
+        Global: 0.5
+        Periodic: 0.5
+
+Network: configs/network.yaml
+
+SVBRDF:
+    Type: Disney
+
+Lights:
+    - Type: Punctual
+      Position: [0, 0, 0.25]
+      Lumens: [0.5, 0.5, 0.5]
+
+Viewer:
+    Type: Perspective
+    Position: [0, 0, 2]
+
+Camera:
+    Type: Perspective
+    Position: [0, 0, 2]
+    Direction: [0, 0, -1]
+    Field of View: [64, 36]
+    Resolution: [1280, 720]
+    Exposure: 1

@@ -1,0 +1,34 @@
+Flow:
+    Experiment: Validation (Texel Loss 400)
+    Epochs: 16
+    Cycles: 1000
+    Samples: 8
+    Tuning: True
+    Frequencies:
+        Tests Publication: 20000
+        Image Publication: 200
+        Parameter Checkpoint: 1000
+        Early Stopping: 20000
+    Early Stopping:
+        Epsilon: 0.0001
+        Patience: 5
+    Loss Weights:
+        Diversity:
+            Content: 0
+            Style: 0
+        Reconstruction:
+            Content: 300
+            Style: 1
+            Texel: 400
+
+Optimizer:
+    Type: Adam
+    Learning Rate: 0.0002
+    Betas: [0.9, 0.999]
+    Weight Decay: 0
+
+SVBRDF:
+    Type: Disney
+
+Dataset: configs/dataset.yaml
+Network: configs/network.yaml

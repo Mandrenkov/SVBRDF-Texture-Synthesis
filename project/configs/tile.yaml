@@ -1,0 +1,26 @@
+Flow:
+    Input Path: data/Earth - Dry Mud/Sample 0.png
+    Output Path: results/tile.png
+    Overlap: 5
+
+Network: configs/network.yaml
+
+SVBRDF:
+    Type: Disney
+
+Lights:
+    - Type: Punctual
+      Position: [0, 0, 2]
+      Lumens: [4, 4, 4]
+
+Viewer:
+    Type: Perspective
+    Position: [0, 0, 2]
+
+Camera:
+    Type: Perspective
+    Position: [0, 0, 2]
+    Direction: [0, 0, -1]
+    Field of View: [64, 36]
+    Resolution: [1280, 720]
+    Exposure: 1

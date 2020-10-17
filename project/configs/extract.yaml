@@ -1,0 +1,6 @@
+Flow:
+    Output Path: results/extract.png
+    Dataset: Validation
+    Texture: {Category: Earth, Name: Dry Mud}
+
+Dataset: configs/dataset.yaml

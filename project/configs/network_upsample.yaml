@@ -1,0 +1,172 @@
+Dimensions:
+    Texture:
+        Input: [256, 256, 4]
+        Output: [256, 256, 16]
+    Latent:
+        Local: [32, 32, 256]
+        Global: [32, 32, 128]
+        Periodic: [32, 32, 2]
+
+Parameters:
+    Path: results/parameters.pth
+    Load: False
+
+Encoders:
+    Local:
+        Initialization:
+            Type: Normal
+            Mean: 0
+            Stdev: 0.02
+        Layers:
+            - Type: Convolutional
+              Channels: [4, 32]
+              Stride: 1
+              Kernel: 5
+            - Type: Activation
+              Function: ReLU
+            - Type: Batch Normalization
+              Features: 32
+
+            - Type: Convolutional
+              Channels: [32, 64]
+              Stride: 2
+              Kernel: 5
+            - Type: Activation
+              Function: ReLU
+            - Type: Batch Normalization
+              Features: 64
+
+            - Type: Convolutional
+              Channels: [64, 128]
+              Stride: 2
+              Kernel: 5
+            - Type: Activation
+              Function: ReLU
+            - Type: Batch Normalization
+              Features: 128
+
+            - Type: Convolutional
+              Channels: [128, 256]
+              Stride: 2
+              Kernel: 5
+            - Type: Activation
+              Function: Tanh
+
+    Global:
+        Initialization:
+            Type: Normal
+            Mean: 0
+            Stdev: 0.02
+        Layers:
+            - Type: Convolutional
+              Channels: [4, 32]
+              Stride: 1
+              Kernel: 5
+            - Type: Activation
+              Function: ReLU
+            - Type: Batch Normalization
+              Features: 32
+
+            - Type: Convolutional
+              Channels: [32, 64]
+              Stride: 4
+              Kernel: 5
+            - Type: Activation
+              Function: ReLU
+            - Type: Batch Normalization
+              Features: 64
+
+            - Type: Convolutional
+              Channels: [64, 128]
+              Stride: 4
+              Kernel: 5
+            - Type: Activation
+              Function: ReLU
+            - Type: Batch Normalization
+              Features: 128
+
+            - Type: Convolutional
+              Channels: [128, 256]
+              Stride: 4
+              Kernel: 5
+            - Type: Activation
+              Function: ReLU
+            - Type: Batch Normalization
+              Features: 256
+
+            - Type: Flat
+            - Type: Fully Connected
+              Features: [4096, 128]  # 4 * 4 * 256 = 4096
+            - Type: Activation
+              Function: Tanh
+
+    Periodic:
+        Initialization:
+            Type: Normal
+            Mean: 0
+            Stdev: 0.02
+        Layers:
+            - Type: Fully Connected
+              Features: [128, 256]
+            - Type: Activation
+              Function: ReLU
+            - Type: Fully Connected
+              Features: [256, 6]
+
+Decoder:
+    Initialization:
+        Type: Normal
+        Mean: 0
+        Stdev: 0.02
+    Layers:
+        - Type: Convolutional
+          Channels: [386, 256]
+          Stride: 1
+          Kernel: 5
+        - Type: Activation
+          Function: ReLU
+        - Type: Batch Normalization
+          Features: 256
+
+        - Type: Upsample
+          Scale: 2
+          Mode: nearest
+        - Type: Convolutional
+          Channels: [256, 128]
+          Stride: 1
+          Kernel: 5
+        - Type: Activation
+          Function: ReLU
+        - Type: Batch Normalization
+          Features: 128
+
+        - Type: Upsample
+          Scale: 2
+          Mode: nearest
+        - Type: Convolutional
+          Channels: [128, 64]
+          Stride: 1
+          Kernel: 5
+        - Type: Activation
+          Function: ReLU
+        - Type: Batch Normalization
+          Features: 64
+
+        - Type: Upsample
+          Scale: 2
+          Mode: nearest
+        - Type: Convolutional
+          Channels: [64, 32]
+          Stride: 1
+          Kernel: 5
+        - Type: Activation
+          Function: ReLU
+        - Type: Batch Normalization
+          Features: 32
+
+        - Type: Convolutional
+          Channels: [32, 16]
+          Stride: 1
+          Kernel: 5
+        - Type: Activation
+          Function: Sigmoid

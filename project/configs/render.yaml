@@ -1,0 +1,93 @@
+Flow:
+    Output Path: results/render.png
+    Normals: assets/example_normal.png
+
+# SVBRDF:
+#     Type: Lambertian
+#     Parameters:
+#         - Type: sRGB
+#           Path: assets/example_diffuse.png
+# SVBRDF:
+#     Type: Blinn-Phong
+#     Parameters:
+#         - Type: Greyscale
+#           Path: assets/example_albedo.png
+#         - Type: sRGB
+#           Path: assets/example_diffuse.png
+#         - Type: sRGB
+#           Path: assets/example_specular.png
+#         - Type: Greyscale
+#           Path: assets/example_glossiness.png
+# SVBRDF:
+#     Type: Substance
+#     Parameters:
+#         - Type: sRGB
+#           Path: assets/example_diffuse.png
+#         - Type: sRGB
+#           Path: assets/example_specular.png
+#         - Type: Greyscale
+#           Path: assets/example_glossiness.png
+#         - Type: Greyscale
+#           Path: assets/example_anisotropy_level.png
+#         - Type: Greyscale
+#           Path: assets/example_anisotropy_angle.png
+SVBRDF:
+    Type: Disney
+    Parameters:
+        - Type: sRGB
+          Path: assets/example_base.png
+        - Type: Greyscale
+          Path: assets/example_subsurface.png
+        - Type: Greyscale
+          Path: assets/example_metallic.png
+        - Type: Greyscale
+          Path: assets/example_specular_amount.png
+        - Type: Greyscale
+          Path: assets/example_specular_tint.png
+        - Type: Greyscale
+          Path: assets/example_roughness.png
+        - Type: Greyscale
+          Path: assets/example_anisotropy_level.png
+        - Type: Greyscale
+          Path: assets/example_anisotropy_angle.png
+        - Type: Greyscale
+          Path: assets/example_sheen_amount.png
+        - Type: Greyscale
+          Path: assets/example_sheen_tint.png
+        - Type: Greyscale
+          Path: assets/example_clearcoat_amount.png
+        - Type: Greyscale
+          Path: assets/example_clearcoat_gloss.png
+
+
+Lights:
+    - Type: Punctual
+      Position: [0, 0, 0.25]
+      Lumens: [0.5, 0.5, 0.5]
+# Lights:
+#   - Type: Image
+#     Path: assets/example_environment.png
+#     Samples: 100
+#     Intensity: 3
+
+# Viewer:
+#     Type: Perspective
+#     Position: [-0.1, -0.2, 0.5]
+Viewer:
+    Type: Perspective
+    Position: [0, 0, 2]
+
+# Camera:
+#     Type: Perspective
+#     Position: [-0.25, -0.5, 1]
+#     Direction: [1, 1.5, -1.75]
+#     Field of View: [64, 36]
+#     Resolution: [1280, 720]
+#     Exposure: 1
+Camera:
+    Type: Perspective
+    Position: [0, 0, 2]
+    Direction: [0, 0, -1]
+    Field of View: [64, 36]
+    Resolution: [1280, 720]
+    Exposure: 1

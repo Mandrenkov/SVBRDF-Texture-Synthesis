@@ -1,0 +1,35 @@
+Flow:
+    Input Path: assets/example_feedback.png
+    Output Path: results/feedback.png
+    Loops: 5
+
+Network: configs/network.yaml
+
+SVBRDF:
+    Type: Disney
+
+Camera:
+    Type: Perspective
+    Position: [-1.3, -0.8, 1.2]
+    Direction: [1.5, 1.0, -1.6]
+    Field of View: [64, 36]
+    Resolution: [1280, 720]
+    Exposure: 1
+
+Feedback Lights:
+    - Type: Punctual
+      Position: [0.5, 0.5, 0.25]
+      Lumens: [0.5, 0.5, 0.5]
+
+Feedback Viewer:
+    Type: Perspective
+    Position: [0.5, 0.5, 2]
+
+Rendering Lights:
+    - Type: Punctual
+      Position: [0, 0, 0.25]
+      Lumens: [0.5, 0.5, 0.5]
+
+Rendering Viewer:
+    Type: Perspective
+    Position: [-1.3, -0.8, 1.2]

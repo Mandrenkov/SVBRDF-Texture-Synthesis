@@ -1,0 +1,35 @@
+Flow:
+    Input Path: data/Earth - Dry Mud/Sample 3.png
+    Output Path: results/shuffle.png
+    Output Size: [256, 512]
+    Tile Size: [8, 8]
+
+Network: configs/network.yaml
+
+SVBRDF:
+    Type: Disney
+
+Lights:
+    - Type: Punctual
+      Position: [0, 0, 0.5]
+      Lumens: [1, 1, 1]
+
+Viewer:
+    # Type: Perspective
+    # Position: [-0.1, -0.2, 0.5]
+    Type: Perspective
+    Position: [0, 0, 2]
+
+Camera:
+    # Type: Perspective
+    # Position: [-0.25, -0.5, 1]
+    # Direction: [1, 1.5, -1.75]
+    # Field of View: [64, 36]
+    # Resolution: [1280, 720]
+    # Exposure: 1
+    Type: Perspective
+    Position: [0, 0, 1]
+    Direction: [0, 0, -1]
+    Field of View: [64, 36]
+    Resolution: [1280, 720]
+    Exposure: 1

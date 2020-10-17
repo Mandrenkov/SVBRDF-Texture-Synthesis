@@ -1,0 +1,82 @@
+Dimensions:
+    Crop: [256, 256, 3]
+    Texture: [1024, 1024, 3]
+
+Path: data/
+
+Layout:
+    Normals: Normal.png
+    Parameters:
+        - {Type: sRGB, Name: Diffuse.png}
+        - {Type: sRGB, Name: Specular.png}
+        - {Type: Greyscale, Name: Glossiness.png}
+        - {Type: Greyscale, Name: Anisotropy Level.png}
+        - {Type: Greyscale, Name: Anisotropy Angle.png}
+
+Training Textures:
+    - {Category: Earth, Name: SP 1 Mud}
+    - {Category: Earth, Name: Forest Ground 001}
+    - {Category: Earth, Name: SP 1 Fur Cow Long}
+    - {Category: Fabric, Name: Camouflage 001}
+    - {Category: Fabric, Name: Fabric Suit Vintage}
+    - {Category: Fabric, Name: SP 1 Fabric Silk}
+    - {Category: Industry, Name: Carbon Fiber}
+    - {Category: Industry, Name: SP 1 Cardboard}
+    - {Category: Industry, Name: SP 1 Jeans}
+    - {Category: Metal, Name: Metal Panels 001}
+    - {Category: Metal, Name: SP 1 Metal Plate 011}
+    - {Category: Metal, Name: SP 1 Metal Steel Brushed}
+    - {Category: Rock, Name: Granite 001}
+    - {Category: Rock, Name: Rock 012 Bitmap}
+    - {Category: Rock, Name: Stacked Rectangular Stones}
+    - {Category: Urban, Name: Classic Brown Concrete}
+    - {Category: Urban, Name: Garden Tiles 001 Bitmap}
+    - {Category: Urban, Name: SP 1 Concrete 011}
+    - {Category: Wood, Name: SP 1 Bark Black Pine}
+    - {Category: Wood, Name: SP 1 Old Painted Planks}
+    - {Category: Wood, Name: Wood 024 Walnut}
+
+Validation Textures:
+    - {Category: Earth, Name: Dry Mud}
+    - {Category: Fabric, Name: SP 1 Cap}
+    - {Category: Industry, Name: SP 1 Wicker}
+    - {Category: Metal, Name: SP 1 Metal 006}
+    - {Category: Rock, Name: Stone Tiles 001}
+    - {Category: Urban, Name: Concrete 085}
+    - {Category: Wood, Name: Wenge}
+
+Testing Textures:
+    - {Category: Earth, Name: SP 1 Fur Cow Short}
+    - {Category: Fabric, Name: SP 1 Fabric Wool Fluffy}
+    - {Category: Industry, Name: SP 1 Backpack Padding}
+    - {Category: Metal, Name: SP 1 Metal Dumpster}
+    - {Category: Rock, Name: Ice 001 Bitmap}
+    - {Category: Urban, Name: Concrete 063}
+    - {Category: Wood, Name: SP 1 Wood Board 1}
+
+Transforms:
+    - Type: Reflection
+    - Type: Rotation
+    - Type: Elevation
+      Min Scalar: 0.5
+      Max Scalar: 1.5
+    - Type: Substitution
+      Targets:
+          - Index: 7  # Anisotropy level in Substance SVBRDF
+            Min Value: 0.0
+            Max Value: 0.5
+          - Index: 8  # Anisotropy angle in Substance SVBRDF
+            Min Value: 0.0
+            Max Value: 1.0
+
+SVBRDF:
+    Type: Substance
+
+Lights:
+    - Type: Punctual
+      Position: [0.5, 0.5, 0.25]
+      Lumens: [0.5, 0.5, 0.5]
+
+Viewer:
+    Type: Perspective
+    Position: [0.5, 0.5, 2]
