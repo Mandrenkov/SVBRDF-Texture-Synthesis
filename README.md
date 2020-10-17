@@ -12,7 +12,7 @@ reconstruct, interpolate, and expand textures.
 | [`sandbox/`](sandbox/) | Source code† for several classical texture synthesis algorithms. |
 | [`thesis.pdf`](thesis.pdf) | Dissertation associated with the research project. |
 
-† An execution guide for the source code is provided in Appendix B of `thesis.pdf` (where `sandbox` replaces `classic`).
+† An execution guide is provided in Appendix B of `thesis.pdf` (where `sandbox` replaces `classic`).
 
 ‡ The dataset used to train the SVBRDF Autoencoder is not included in this repository.
 
