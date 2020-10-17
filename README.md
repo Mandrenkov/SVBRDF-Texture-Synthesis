@@ -17,7 +17,7 @@ reconstruct, interpolate, and expand textures.
 ‡ The dataset used to train the SVBRDF Autoencoder is not included in this repository.
 
 ### Licensing
-* The `project` and `sandbox` directories are licensed under an [MIT License](https://opensource.org/licenses/MIT).
+* The `project` and `sandbox` source code is licensed under an [MIT License](https://opensource.org/licenses/MIT).
 * The `thesis.pdf` file is licensed under a [CC-BY 4.0 License](https://creativecommons.org/licenses/by/4.0/).
 
 ### Citation
